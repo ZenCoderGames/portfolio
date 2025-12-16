@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Randomness in Gameplay - Srinavin Nair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #ffffff;
+            --secondary-bg: #f5f5f5;
+            --text-dark: #1a1a1a;
+            --text-light: #666666;
+            --accent-blue: #007cba;
+            --nav-bg: #32373c;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .site-tagline {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-hero {
+            padding: 60px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .project-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .project-meta {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .project-content {
+            padding: 60px 0;
+        }
+
+        .project-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            color: var(--text-dark);
+        }
+
+        .project-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .project-content h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            margin-top: 35px;
+            color: var(--text-dark);
+        }
+
+        .project-content h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            margin-top: 25px;
+            color: var(--text-dark);
+        }
+
+        .project-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .project-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .project-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="../index.html" class="site-title">Srinavin Nair</a>
+                    <div class="site-tagline">Game programmer/designer</div>
+                </div>
+                <a href="../index.html#design" class="back-link">← Back to Design</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Randomness in Gameplay</h1>
+            <p class="project-meta">Game Design Article</p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <p>Randomness in gameplay is when certain events happen during gameplay that are unpredictable or imperceivable to the player.</p>
+
+            <p>Generally when we refer to randomness we refer to <strong>Overt Randomness</strong> (Dice rolls, Card draws, Random Number Generators etc)</p>
+
+            <p>However, the following can be considered as cases for randomness too:</p>
+
+            <ul>
+                <li><strong>Physical Limitations</strong> for execution of skill (memory, accuracy, speed, strength, timing)
+                    <br>
+                    <img src="../resources/design/randomness/sf4_ryuCombo.gif" alt="Street Fighter 4 Ryu Combo" style="max-width: 100%; height: auto; border-radius: 4px;">
+                    <br>
+                    <em>(Can me or my opponent successfully execute a hard to execute combo in Street Fighter 4)</em>
+                </li>
+                <li><strong>Unpredictable Opponent Decision Making</strong> (when the choice of attacking/defending move by the AI is perceived as random to the player)
+                    <br>
+                    <img src="../resources/design/randomness/gow4_sigrunattack.gif" alt="GoW Valkyrie Fight" style="max-width: 100%; height: auto; border-radius: 4px;">
+                    <br>
+                    <em>(God of War's Valkyries have multiple attacking moves that are randomly chosen that the player has to react to)</em></li>
+                <li><strong>Complexity</strong> (Game space is too complex to make a calculated decision)
+                    <br>
+                    <img src="../resources/design/randomness/go_boardGame.png" alt="Go Board Game" style="max-width: 100%; height: auto; border-radius: 4px;">
+                    <br>
+                    <em>(In a game like Go where the decision space is so complex, the choice of where to put your piece becomes effectively random. Even AI programs rely on probabilistic algorithms like Monte Carlo Search since it is too expensive to predict the next move)</em></li>
+                <li><strong>Hidden Information</strong> (Player has to make decisions based on uncertain information)
+                    <br>
+                    <img src="../resources/design/randomness/starcraft2_FogOfWar.gif" alt="StarCraft 2 Fog of War" style="max-width: 100%; height: auto; border-radius: 4px;">
+                    <br>
+                    <em>(In most RTS games, the concept of Fog of War exists as a means to obscure information of the map state. This creates a state of hidden information of the opponent's actions that makes that aspect of the game feel random. More skilled players use scouting as a mechanic to reduce this.)</em></li>
+            </ul>
+
+            <p>For the rest of the article however, when I refer to Randomness, I will refer to Overt Randomness since that is the most common form of randomness we find in gameplay in most games.</p>
+
+            <h2>Pros and Cons of Randomness</h2>
+
+            <p><strong>Pros:</strong></p>
+
+            <ul>
+                <li>Adds variety and helps make repeated playthroughs feel different and fresh.</li>
+                <li>Makes the game space not feel solvable.</li>
+                <li>Can make the game more approachable as it can make it such that with a lucky roll a less skilled player can beat a higher skilled player some of the time.</li>
+                <li>Protects egos as players can always blame the random event as the reason why they lost.</li>
+                <li>Adds exciting moments in games. Think of a time where you landed a critical hit that killed a monster in one hit.</li>
+            </ul>
+
+            <p><strong>Cons:</strong></p>
+
+            <ul>
+                <li>Can be perceived as unfair when you are dealt a bad hand (Think of the time you played a game like Magic the Gathering but didn't draw a single land or creature that you could play)</li>
+                <li>If the game is heavily based on luck can turn away more strategic/skill based players.</li>
+            </ul>
+
+            <p>In general, I think randomness has more benefits than negatives in game design but certain genres or games where skill is supposed to trump chance a 100% of the time (For example: Most Fighting games, chess etc) you will see almost no Overt Randomness.</p>
+
+            <h2>Categories of Randomness</h2>
+
+            <p>Generally, overt randomness can be split up into two categories in most games:</p>
+
+            <ul>
+                <li>Pre Player Action Randomness</li>
+                <li>Post Player Action or Simulation Randomness</li>
+            </ul>
+
+            <h3>Pre Player Action Randomness</h3>
+
+            <p>This is when a random event or set of random events occur that put the game in a state which the player can then act upon.</p>
+
+            <h4>Examples:</h4>
+
+            <p><em>(In Hearthstone the deck is randomized at the start and then the top 3 cards are drawn from it)</em></p>
+
+            <p><em>(Into the Breach starts each map with a randomized set of spawn locations for enemies to show up making combat encounters on the same map feel different every time)</em></p>
+
+            <p><em>(An example of how rooms can be generated procedurally by an algorithm that uses random seeds)</em></p>
+
+            <p>In general since this gives the player a chance to respond, is usually considered the fairest form of randomness in games as the player has some agency in decision making after the consequences of the random event.</p>
+
+            <h3>Post Player Action or Simulation Randomness</h3>
+
+            <p>This is when a random event or set of random events occur during sections of the game where the player doesn't have agency over or during a simulation after a player action.</p>
+
+            <h4>Examples:</h4>
+
+            <p><em>(In Darkest Dungeon, certain attacks can critical hit increasing the damage done by the attack. When a crit occurs it is usually a very satisfying moment)</em></p>
+
+            <p><em>(In Dota 2, the hero Phantom Assassin can be upgraded to have a fairly high miss chance on physical attacks by enemies. These moments make the crowd go wild as they can change the fate of an entire match sometimes)</em></p>
+
+            <p><em>(This hearthstone game looked like it was over for the Hunter opponent, until his secret triggered causing the enemy that attacked him to retarget to another random character instead)</em></p>
+
+            <p>When done well this can stir moments of emotions to the player and also make games feel lighter as player's can blame their losses on RNG instead.</p>
+
+            <p>Some rules for this type of randomness that I find to feel good in games where it is player versus AI (For example: Action RPGs, Roguelikes etc):</p>
+
+            <h4>Pseudo-Deterministic Randomness:</h4>
+
+            <p>Make it so that the random event will occur within a threshold.</p>
+
+            <p>Example:</p>
+
+            <ul>
+                <li>If the player fails to trigger random event, the chance of doing the event goes up incrementally till eventually it has a 100% chance to trigger.</li>
+            </ul>
+
+            <h4>Pro Player randomness</h4>
+
+            <p>Make the random event always be beneficial to the player</p>
+
+            <p>Examples:</p>
+
+            <ul>
+                <li>Enemy has a chance to miss on the player rather than player attacks missing.</li>
+                <li>Player has a chance to crit or lifesteal but enemy does not.</li>
+            </ul>
+
+            <h4>Significant random events</h4>
+
+            <p>Make the chance for the event to occur low but the payoff be significant.</p>
+
+            <p>Examples:</p>
+
+            <ul>
+                <li>5% chance to lifesteal 50% damage dealt rather than 50% chance to lifesteal 5% damage dealt</li>
+                <li>Low chance to spawn a powerful minion is better than a high chance to spawn a weaker minion (This also has the additional benefit of being able to add more polish on the random event and usually helps performance since it happens fewer times)</li>
+            </ul>
+
+            <h4>Customizable Randomness</h4>
+
+            <p>Give tools for the player to mitigate or enhance randomness</p>
+
+            <p>Examples:</p>
+
+            <ul>
+                <li>Skill tree unlocks to increase the chance for a random event to happen (Prevent missing on enemies, Every hit after a parry does a critical hit)</li>
+                <li>Gear customization to increase the odds for a random even to trigger (Crit Chance, Crit Damage, Miss chance)</li>
+                <li>Stats that increase random chance percents (If you hit 30 Strength, the chance to crit goes from 10% to 50%)</li>
+            </ul>
+
+            <h3>Key Research References/Links:</h3>
+
+            <p>Richard Garfield (Luck in Games) – https://www.youtube.com/watch?v=av5Hf7uOu-o</p>
+
+            <p>GameMaker's Toolkit (Spelunky) https://www.youtube.com/watch?v=Uqk5Zf0tw3o</p>
+
+            <p>https://www.gamasutra.com/blogs/KeithBurgun/20141015/227740/Randomness_and_Game_Design.php</p>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Srinavin Nair. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
