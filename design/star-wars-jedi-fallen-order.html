@@ -13,10 +13,11 @@
 
         :root {
             --primary-bg: #ffffff;
+            --header-bg: #373945;
             --secondary-bg: #f5f5f5;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --accent-blue: #007cba;
+            --text-dark: #5a799f;
+            --text-light: #3d7cad;
+            --accent-blue: #0dd6f9;
             --nav-bg: #32373c;
             --border-color: #e0e0e0;
         }
@@ -36,7 +37,7 @@
         }
 
         header {
-            background-color: var(--primary-bg);
+            background-color: var(--header-bg);
             border-bottom: 1px solid var(--border-color);
             padding: 20px 0;
         }
@@ -121,6 +122,13 @@
             margin-bottom: 10px;
         }
 
+        .project-content h3 {
+            font-size: 26px;
+            margin-bottom: 15px;
+            margin-top: 35px;
+            color: var(--text-dark);
+        }
+
         footer {
             background-color: var(--secondary-bg);
             padding: 30px 0;
@@ -157,25 +165,78 @@
 
     <section class="project-content">
         <div class="container">
-            <h2>Introduction</h2>
-            <p>A deep dive into the game design choices and mechanics of this action-adventure title.</p>
+            <p>This piece examines the basic melee StormTrooper enemy type from Star Wars: Jedi Fallen Order, using a structured approach to enemy design analysis.</p>
 
-            <h2>Combat Design</h2>
-            <p>Analyze the combat system and its influences from other games.</p>
-            <ul>
-                <li>Lightsaber combat mechanics</li>
-                <li>Force abilities integration</li>
-                <li>Enemy design and variety</li>
-            </ul>
+            <h2>Enemy Behavior Categories</h2>
 
-            <h2>Level Design</h2>
-            <p>Examine the interconnected world design and exploration mechanics.</p>
+            <h3>Aggression</h3>
+            <p>The StormTrooper has approximately 1.5-2 seconds of downtime between attacks.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/dFaBDUdygFI" title="StarWars_JediFallenOrder_AggresionTest" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
-            <h2>Progression Systems</h2>
-            <p>Discuss the skill tree, ability unlocks, and character progression.</p>
+            <h3>Movement Speed</h3>
+            <p>Enemies walk at player speed but use a lunging move to close distance more quickly.</p>
 
-            <h2>Narrative Integration</h2>
-            <p>Explore how gameplay mechanics support and enhance the narrative experience.</p>
+            <h3>Attack Range</h3>
+            <p>Features short-range melee strikes plus one longer-range thrusting attack.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/Couyz0NGWoM" title="StarWars_JediFallenOrder_AttackCombo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Attack Speed</h3>
+            <p>Attacks have brief anticipation windows, making player counterattacks difficult.</p>
+
+            <h3>Anticipation Pose/Readability</h3>
+            <p>Attack windup animations are visually distinct and telegraph attack direction, allowing player prediction.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/o7tms-9Hvek" title="StarWars_JediFallenOrder_AnticipationPose" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Attack Recovery</h3>
+            <p>Most attacks include roughly 1 second of recovery time.</p>
+
+            <h3>Attack Combo/Moveset</h3>
+            <p>The enemy repertoire includes basic slashing combos, thrusting moves, and slam attacks.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/n7y9-pZXgC4" title="StarWars_JediFallenOrder_AttackCombo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Attack Tracking</h3>
+            <p>Low tracking after attack initiation, though weapon collision remains large enough to catch nearby players.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/henIfVjqIMQ" title="StarWars_JediFallenOrder_AttackTracking" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Group Aggression</h3>
+            <p>Multiple enemies coordinate attacks through token/threshold systems, preventing simultaneous strikes.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/Couyz0NGWoM" title="StarWars_JediFallenOrder_GroupAggression" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Player Damage</h3>
+            <p>A two-hit combo removes approximately one-quarter of player health.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/87v0R1ZrB-c" title="StarWars_JediFallenOrder_ComboDamage" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Player Reactions</h3>
+            <p>Blocking triggers light knockback; unblocked attacks cause extended stagger effects.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/jKgyY7U0XE0" title="StarWars_JediFallenOrder_Reactions" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Health</h3>
+            <p>StormTroopers die in 2-3 hits and become vulnerable to execution moves when staggered.</p>
+
+            <h3>Defense/Reactions</h3>
+            <p>The game features a block stamina system where attacks drain defensive meters before causing stagger reactions.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/V1jpKhXotio" title="StarWars_JediFallenOrder_Parry" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <h3>Difficulty Note</h3>
+            <p>Parry windows narrow significantly on higher difficulties, requiring precise timing.</p>
         </div>
     </section>
 

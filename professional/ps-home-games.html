@@ -13,10 +13,11 @@
 
         :root {
             --primary-bg: #ffffff;
+            --header-bg: #373945;
             --secondary-bg: #f5f5f5;
-            --text-dark: #1a1a1a;
-            --text-light: #666666;
-            --accent-blue: #007cba;
+            --text-dark: #5a799f;
+            --text-light: #3d7cad;
+            --accent-blue: #0dd6f9;
             --nav-bg: #32373c;
             --border-color: #e0e0e0;
         }
@@ -36,7 +37,7 @@
         }
 
         header {
-            background-color: var(--primary-bg);
+            background-color: var(--header-bg);
             border-bottom: 1px solid var(--border-color);
             padding: 20px 0;
         }
@@ -151,28 +152,36 @@
     <section class="project-hero">
         <div class="container">
             <h1>PS Home Games</h1>
-            <p class="project-meta">Professional Project | PlayStation Home Platform</p>
+            <p><strong>Engine:</strong> Playstation Home Engine (Lua)</p>
+            <p><strong>Role:</strong> Lead Software Engineer</p>
         </div>
     </section>
 
     <section class="project-content">
         <div class="container">
-            <h2>Overview</h2>
-            <p>Developed interactive experiences for the PlayStation Home platform.</p>
+            <p>While at Codename Games, I was the solo engineer working on a small team helping them bring games to the PS Home collection of games.</p>
 
-            <h2>Role & Responsibilities</h2>
-            <p>Add details about your specific role and contributions to the project.</p>
-            <ul>
-                <li>Interactive experience development</li>
-                <li>Platform-specific feature implementation</li>
-                <li>Social gameplay systems</li>
-            </ul>
+            <p>The first game I worked on was a remake of Cogs.</p>
 
-            <h2>Technical Details</h2>
-            <p>Describe the technologies, tools, and techniques used in your work on this project.</p>
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/qiO6uFvcbic" title="PlaystationHome_Cogs" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
 
-            <h2>Challenges & Solutions</h2>
-            <p>Highlight key challenges faced during development and how you overcame them.</p>
+            <p>This was a super fun project with a lot of interesting recursive algorithms as the puzzles started off simple and got fairly complex once the shapes and sizes of the boards increased. Also, having to implement this in lua was quite a challenge.</p>
+
+            <p>Later in the lifecycle of the company I also helped push another game out called Clusterpuck.</p>
+
+            <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; margin-bottom: 30px;">
+                <iframe style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;" src="https://www.youtube.com/embed/swc2U6RYsYI" title="PlaystationHome_Clusterpuck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+
+            <p>I wasn't the main programmer on this project and played more of a supporting role apart from driving the original architecture of our codebase. But had to help out a bit more towards the end while shipping this.</p>
+
+            <p>A couple other projects that the team worked on that were really cool but sadly didn't end up shipping before PS Home went through a transition are shown below:</p>
+
+            <p><em><img src="../resources/design/ps_home/Boom.png" alt="Boom" style="max-width: 100%; height: auto; border-radius: 4px;"><br>Boom! - A cool tower defense game where you played as tanks defending against warships bombarding your island.</em></p>
+
+            <p><em><img src="../resources/design/ps_home/SamRPG.png" alt="SAM RPG" style="max-width: 100%; height: auto; border-radius: 4px;"><br>SAM RPG - A hex based turn based Roguelike game that was about making hard choices to climb to the top of a mountain as quickly as possible.</em></p>
         </div>
     </section>
 
