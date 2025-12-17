@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Json Data Viewer - Srinavin Nair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #ffffff;
+            --header-bg: #373945;
+            --secondary-bg: #f5f5f5;
+            --text-dark: #5a799f;
+            --text-light: #3d7cad;
+            --accent-blue: #0dd6f9;
+            --nav-bg: #32373c;
+            --border-color: #e0e0e0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .site-tagline {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-top: 4px;
+        }
+
+        .back-link {
+            color: var(--accent-blue);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .project-hero {
+            padding: 60px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .project-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .project-meta {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .project-content {
+            padding: 60px 0;
+        }
+
+        .project-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            color: var(--text-dark);
+        }
+
+        .project-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .project-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .project-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .project-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        .app-button-container {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        .app-button {
+            display: inline-block;
+            padding: 20px 50px;
+            background-color: var(--accent-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 20px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(13, 214, 249, 0.3);
+        }
+
+        .app-button:hover {
+            background-color: #005a87;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(13, 214, 249, 0.4);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="../index.html" class="site-title">Srinavin Nair</a>
+                    <div class="site-tagline">Game programmer/designer</div>
+                </div>
+                <a href="../index.html#ai-projects" class="back-link">← Back to AI Projects</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <h1>Json Data Viewer</h1>
+            <p class="project-meta">AI Project</p>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <h2>Overview</h2>
+            <p>A tool I built along with Claude that helps developers visualize and analyze complex JSON data structures.</p>
+
+            <div class="app-button-container">
+                <a href="https://zencodergames.github.io/UltimateJsonDataViewer/" class="app-button">Go To App</a>
+            </div>
+
+            <div class="gallery">
+                <img src="../resources/tools/JsonViewer_01.png" alt="Json Viewer 01" style="max-width: 100%; height: auto; border-radius: 4px;">
+                <img src="../resources/tools/JsonViewer_02.png" alt="Json Viewer 02" style="max-width: 100%; height: auto; border-radius: 4px;">
+            </div>
+
+            <h2>Features</h2>
+            <ul>
+                <li>Can take entire folders filled with JSON files and create a unified view that understands links across the data</li>
+                <li>Has Global and Local Search</li>
+                <li>Smart linking for quick navigation and traversal</li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Srinavin Nair. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
