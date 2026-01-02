@@ -78,6 +78,24 @@
             background-color: var(--secondary-bg);
         }
 
+        .project-hero .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .project-hero-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .project-hero-content {
+            flex: 1;
+        }
+
         .project-hero h1 {
             font-size: 42px;
             margin-bottom: 20px;
@@ -153,9 +171,12 @@
 
     <section class="project-hero">
         <div class="container">
-            <h1>PS Home Games</h1>
-            <p><strong>Engine:</strong> Playstation Home Engine (Lua)</p>
-            <p><strong>Role:</strong> Lead Software Engineer</p>
+            <img src="../resources/design/ps_home/Boom.png" alt="PS Home Games" class="project-hero-image">
+            <div class="project-hero-content">
+                <h1>PS Home Games</h1>
+                <p><strong>Engine:</strong> Playstation Home Engine (Lua)</p>
+                <p><strong>Role:</strong> Lead Software Engineer</p>
+            </div>
         </div>
     </section>
 

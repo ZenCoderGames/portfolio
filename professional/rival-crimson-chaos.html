@@ -78,6 +78,24 @@
             background-color: var(--secondary-bg);
         }
 
+        .project-hero .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .project-hero-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .project-hero-content {
+            flex: 1;
+        }
+
         .project-hero h1 {
             font-size: 42px;
             margin-bottom: 20px;
@@ -153,9 +171,12 @@
 
     <section class="project-hero">
         <div class="container">
-            <h1>Rival: Crimson x Chaos</h1>
-            <p><strong>Engine:</strong> Unity 3D/C#</p>
-            <p><strong>Role:</strong> Senior Programmer/Lead Designer</p>
+            <img src="../resources/design/rival_cxc/leader.png" alt="Rival: Crimson x Chaos" class="project-hero-image">
+            <div class="project-hero-content">
+                <h1>Rival: Crimson x Chaos</h1>
+                <p><strong>Engine:</strong> Unity 3D/C#</p>
+                <p><strong>Role:</strong> Senior Programmer/Lead Designer</p>
+            </div>
         </div>
     </section>
 
