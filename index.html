@@ -144,7 +144,7 @@
             background-color: var(--primary-bg);
             border: 1px solid var(--border-color);
             border-radius: 8px;
-            padding: 25px;
+            overflow: hidden;
             transition: transform 0.3s, box-shadow 0.3s;
         }
 
@@ -153,26 +153,33 @@
             box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
         }
 
+        .project-card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .project-card-content {
+            padding: 20px;
+        }
+
         .project-card h3 {
-            font-size: 20px;
-            margin-bottom: 12px;
+            font-size: 18px;
+            margin-bottom: 8px;
             color: var(--text-dark);
         }
 
         .project-card p {
             color: var(--text-light);
-            font-size: 16px;
-            line-height: 1.5;
-        }
-
-        .project-card a {
-            color: var(--accent-blue);
-            text-decoration: none;
-            font-weight: 500;
-        }
-
-        .project-card a:hover {
-            text-decoration: underline;
+            font-size: 14px;
+            line-height: 1.4;
         }
 
         /* Quick Links */
@@ -295,32 +302,62 @@
     <section id="professional">
         <div class="container">
             <h2>Professional Projects</h2>
-            <p class="section-intro">A showcase of my professional work in the gaming industry, including AAA titles and collaborative projects.</p>
+            <p class="section-intro">AAA titles and collaborative industry projects.</p>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3><a href="professional/god-of-war-ragnarok.html">God Of War: Ragnarok</a></h3>
-                    <p>Contributed to one of PlayStation's flagship titles, working on gameplay systems and mechanics.</p>
+                    <a href="professional/god-of-war-ragnarok.html">
+                        <img src="resources/design/images/GodOfWar.jpg" alt="God Of War: Ragnarok" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>God Of War: Ragnarok</h3>
+                            <p>AAA title - Gameplay systems and mechanics</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="professional/rival-crimson-chaos.html">Rival: Crimson x Chaos</a></h3>
-                    <p>Developed core gameplay features for this competitive action game.</p>
+                    <a href="professional/rival-crimson-chaos.html">
+                        <img src="resources/design/rival_cxc/leader.png" alt="Rival: Crimson x Chaos" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Rival: Crimson x Chaos</h3>
+                            <p>Competitive action game - Core gameplay features</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="professional/blood-tales.html">Blood Tales</a></h3>
-                    <p>Implemented game systems and designed engaging player experiences.</p>
+                    <a href="professional/blood-tales.html">
+                        <img src="resources/design/images/BloodTales.jpg" alt="Blood Tales" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Blood Tales</h3>
+                            <p>Game systems and player experiences</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="professional/days-of-discord.html">Days Of Discord</a></h3>
-                    <p>Designed and programmed key gameplay mechanics for this strategic title.</p>
+                    <a href="professional/days-of-discord.html">
+                        <img src="resources/design/images/DaysOfDiscord.jpg" alt="Days Of Discord" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Days Of Discord</h3>
+                            <p>Strategic title - Gameplay mechanics</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="professional/dungeon-rampage.html">Dungeon Rampage</a></h3>
-                    <p>Created dynamic gameplay systems for this action-packed dungeon crawler.</p>
+                    <a href="professional/dungeon-rampage.html">
+                        <img src="resources/design/images/DungeonRampage.jpg" alt="Dungeon Rampage" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Dungeon Rampage</h3>
+                            <p>Action dungeon crawler - Dynamic gameplay systems</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="professional/ps-home-games.html">PS Home Games</a></h3>
-                    <p>Developed interactive experiences for the PlayStation Home platform.</p>
+                    <a href="professional/ps-home-games.html">
+                        <img src="resources/design/ps_home/Boom.png" alt="PS Home Games" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>PS Home Games</h3>
+                            <p>PlayStation Home platform - Interactive experiences</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -330,20 +367,35 @@
     <section id="independent">
         <div class="container">
             <h2>Independent Games</h2>
-            <p class="section-intro">Personal projects that explore innovative game design concepts and experimental mechanics.</p>
+            <p class="section-intro">Innovative concepts and experimental mechanics.</p>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3><a href="independent/anti-chess.html">Anti Chess</a></h3>
-                    <p>A unique twist on traditional chess gameplay with inverse winning conditions.</p>
+                    <a href="independent/anti-chess.html">
+                        <img src="resources/design/images/AntiChess.jpg" alt="Anti Chess" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Anti Chess</h3>
+                            <p>Chess with inverse winning conditions</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="independent/hexacore.html">HexaCore</a></h3>
-                    <p>A puzzle game featuring hexagonal grid-based strategic gameplay.</p>
+                    <a href="independent/hexacore.html">
+                        <img src="resources/design/images/Hexacore.jpg" alt="HexaCore" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>HexaCore</h3>
+                            <p>Hexagonal grid-based puzzle game</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="independent/raven-conspiracy.html">Raven Conspiracy</a></h3>
-                    <p>A narrative-driven game exploring mystery and intrigue.</p>
+                    <a href="independent/raven-conspiracy.html">
+                        <img src="resources/design/images/RavenConspiracy.jpg" alt="Raven Conspiracy" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Raven Conspiracy</h3>
+                            <p>Narrative-driven mystery game</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -353,16 +405,26 @@
     <section id="design">
         <div class="container">
             <h2>Design</h2>
-            <p class="section-intro">Insights and analysis on game design principles and methodologies.</p>
+            <p class="section-intro">Game design principles and analysis.</p>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3><a href="design/randomness-in-gameplay.html">Randomness in Gameplay</a></h3>
-                    <p>An exploration of how randomness affects player experience and game balance.</p>
+                    <a href="design/randomness-in-gameplay.html">
+                        <img src="resources/design/randomness/Hearthstone_draw.gif" alt="Randomness in Gameplay" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Randomness in Gameplay</h3>
+                            <p>How randomness affects player experience and balance</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="design/star-wars-jedi-fallen-order.html">Star Wars Jedi: Fallen Order Analysis</a></h3>
-                    <p>A deep dive into the game design choices and mechanics of this action-adventure title.</p>
+                    <a href="design/star-wars-jedi-fallen-order.html">
+                        <img src="resources/design/images/JediFallenOrder.jpg" alt="Star Wars Jedi: Fallen Order Analysis" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Star Wars Jedi: Fallen Order Analysis</h3>
+                            <p>Deep dive into design choices and mechanics</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -372,12 +434,17 @@
     <section id="programming">
         <div class="container">
             <h2>Programming</h2>
-            <p class="section-intro">Technical articles and guides for game development.</p>
+            <p class="section-intro">Technical guides for game development.</p>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3><a href="programming/unity-features.html">Unity Feature Updates Guide</a></h3>
-                    <p>A comprehensive guide to the latest Unity features and best practices.</p>
+                    <a href="programming/unity-features.html">
+                        <img src="resources/design/images/Unity3D.jpg" alt="Unity Feature Updates Guide" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Unity Feature Updates Guide</h3>
+                            <p>Latest Unity features and best practices</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -387,16 +454,26 @@
     <section id="ai-projects">
         <div class="container">
             <h2>AI Projects</h2>
-            <p class="section-intro">Artificial intelligence and machine learning projects showcasing innovative applications.</p>
+            <p class="section-intro">AI and machine learning applications.</p>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3><a href="ai-projects/json-data-viewer.html">Json Data Viewer</a></h3>
-                    <p>An AI-powered tool for visualizing and analyzing JSON data structures.</p>
+                    <a href="ai-projects/json-data-viewer.html">
+                        <img src="resources/tools/JsonViewer_01.png" alt="Json Data Viewer" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>Json Data Viewer</h3>
+                            <p>AI-powered JSON visualization and analysis tool</p>
+                        </div>
+                    </a>
                 </div>
                 <div class="project-card">
-                    <h3><a href="ai-projects/pixelpop.html">PixelPop</a></h3>
-                    <p>An AI-powered pixel art creation tool that helps artists and game developers generate and edit pixel art.</p>
+                    <a href="ai-projects/pixelpop.html">
+                        <img src="resources/tools/pixel_pop.png" alt="PixelPop" class="project-card-image">
+                        <div class="project-card-content">
+                            <h3>PixelPop</h3>
+                            <p>AI-powered pixel art creation and editing tool</p>
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
@@ -406,7 +483,7 @@
     <section id="exploration">
         <div class="container">
             <h2>Exploration</h2>
-            <p class="section-intro">Creative pursuits beyond game development, including art and music.</p>
+            <p class="section-intro">Creative work in art and music.</p>
 
             <div class="quick-links">
                 <a href="exploration/art.html" class="quick-link">Art</a>
