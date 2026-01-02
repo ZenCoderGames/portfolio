@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Srinavin Nair - Game Programmer/Designer</title>
+    <title>Srinavin Nair - Game Designer/Programmer</title>
     <style>
         * {
             margin: 0;
@@ -12,14 +12,16 @@
         }
 
         :root {
-            --primary-bg: #ffffff;
-            --header-bg: #373945;
-            --secondary-bg: #f5f5f5;
-            --text-dark: #5a799f;
-            --text-light: #3d7cad;
-            --accent-blue: #0dd6f9;
-            --nav-bg: #32373c;
-            --border-color: #e0e0e0;
+            --primary-bg: #ebe4d2;
+            --card-bg: #d5cab3;
+            --header-bg: #2b3253;
+            --secondary-bg: #587292;
+            --text-dark: #272637;
+            --text-medium: #657994;
+            --text-light: #c3d1ed;
+            --accent-blue: #04724D;
+            --nav-bg: #1b1b22;
+            --border-color: #749391;
         }
 
         body {
@@ -55,13 +57,13 @@
         .site-title {
             font-size: 24px;
             font-weight: 600;
-            color: var(--text-dark);
+            color: var(--primary-bg);
             text-decoration: none;
         }
 
         .site-tagline {
             font-size: 14px;
-            color: var(--text-light);
+            color: var(--primary-bg);
             margin-top: 4px;
         }
 
@@ -85,13 +87,13 @@
 
         nav a {
             text-decoration: none;
-            color: var(--text-dark);
+            color: var(--primary-bg);
             font-size: 16px;
             transition: color 0.3s;
         }
 
         nav a:hover {
-            color: var(--accent-blue);
+            color: var(--secondary-bg);
         }
 
         /* Hero Section */
@@ -127,7 +129,7 @@
 
         .section-intro {
             font-size: 18px;
-            color: var(--text-light);
+            color: var(--text-medium);
             margin-bottom: 40px;
             max-width: 800px;
         }
@@ -141,11 +143,11 @@
         }
 
         .project-card {
-            background-color: var(--primary-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
+            background-color: var(--card-bg);
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
             overflow: hidden;
-            transition: transform 0.3s, box-shadow 0.3s;
+            transition: transform 0.25s, box-shadow 0.25s;
         }
 
         .project-card:hover {
@@ -177,7 +179,7 @@
         }
 
         .project-card p {
-            color: var(--text-light);
+            color: var(--text-medium);
             font-size: 14px;
             line-height: 1.4;
         }
@@ -202,7 +204,7 @@
         }
 
         .quick-link:hover {
-            background-color: #005a87;
+            background-color: var(--text-dark);
         }
 
         /* Footer */
@@ -247,6 +249,14 @@
                 gap: 15px;
             }
 
+            nav a {
+                color: var(--text-dark);
+            }
+
+            nav a:hover {
+                color: var(--accent-blue);
+            }
+
             .hero h1 {
                 font-size: 32px;
             }
@@ -272,7 +282,7 @@
             <div class="header-content">
                 <div>
                     <a href="#" class="site-title">Srinavin Nair</a>
-                    <div class="site-tagline">Game programmer/designer</div>
+                    <div class="site-tagline">Game designer/programmer</div>
                 </div>
                 <button class="nav-toggle" id="navToggle">Menu</button>
                 <nav id="mainNav">
@@ -294,7 +304,7 @@
     <section class="hero" id="home">
         <div class="container">
             <h1>Welcome</h1>
-            <p>I am an LA based game programmer/designer who has worked in the industry for over 10+ years.</p>
+            <p>I am an LA based game designer/programmer who has worked in the industry for over 10+ years.</p>
         </div>
     </section>
 
