@@ -73,6 +73,32 @@
             text-decoration: underline;
         }
 
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            color: var(--primary-bg);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 12px;
+            border: 1px solid var(--primary-bg);
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-bg);
+            color: var(--header-bg);
+        }
+
         .project-hero {
             padding: 60px 0;
             background-color: var(--secondary-bg);
@@ -188,7 +214,13 @@
                     <a href="../index.html" class="site-title">Srinavin Nair</a>
                     <div class="site-tagline">Game programmer/designer</div>
                 </div>
-                <a href="../index.html#ai-projects" class="back-link">← Back to AI Projects</a>
+                <div class="header-nav">
+                    <a href="../index.html#ai-projects" class="back-link">← Back to AI Projects</a>
+                    <div class="nav-buttons">
+                        <a href="pixelpop.html" class="nav-btn">← Prev</a>
+                        <a href="pixelpop.html" class="nav-btn">Next →</a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
