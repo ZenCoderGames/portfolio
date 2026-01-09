@@ -9,7 +9,12 @@
       "Bash(findstr:*)",
       "Bash(tasklist:*)",
       "Bash(curl:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(git ls-tree:*)",
+      "Bash(dir /s /b *.css)",
+      "Bash(dir /s /b .cursorrules .cursorrules)",
+      "Bash(dir:*)",
+      "WebFetch(domain:www.youtube.com)"
     ],
     "deny": [],
     "ask": []
