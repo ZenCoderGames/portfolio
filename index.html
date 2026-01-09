@@ -14,8 +14,9 @@
         :root {
             --primary-bg: #ebe4d2;
             --card-bg: #d5cab3;
-            --header-bg: #2b3253;
+            --header-bg: #8a9fb8;
             --secondary-bg: #587292;
+            --secondary-text-dark: #9cc8da;
             --text-dark: #272637;
             --text-medium: #657994;
             --text-light: #c3d1ed;
@@ -57,13 +58,13 @@
         .site-title {
             font-size: 24px;
             font-weight: 600;
-            color: var(--primary-bg);
+            color: var(--text-dark);
             text-decoration: none;
         }
 
         .site-tagline {
             font-size: 14px;
-            color: var(--primary-bg);
+            color: var(--text-dark);
             margin-top: 4px;
         }
 
@@ -71,7 +72,7 @@
         .nav-toggle {
             display: none;
             background-color: var(--nav-bg);
-            color: white;
+            color: var(--text-dark);
             border: none;
             padding: 10px 15px;
             cursor: pointer;
@@ -87,7 +88,7 @@
 
         nav a {
             text-decoration: none;
-            color: var(--primary-bg);
+            color: var(--text-dark);
             font-size: 16px;
             transition: color 0.3s;
         }
@@ -106,7 +107,7 @@
         .hero h1 {
             font-size: 42px;
             margin-bottom: 20px;
-            color: var(--text-dark);
+            color: var(--secondary-text-dark);
         }
 
         .hero p {
@@ -312,7 +313,7 @@
     <section id="professional">
         <div class="container">
             <h2>Professional Projects</h2>
-            <p class="section-intro">AAA titles and collaborative industry projects.</p>
+            <p class="section-intro">Games across AAA and Startups that I worked at</p>
 
             <div class="projects-grid">
                 <div class="project-card">
@@ -377,7 +378,7 @@
     <section id="independent">
         <div class="container">
             <h2>Independent Games</h2>
-            <p class="section-intro">Innovative concepts and experimental mechanics.</p>
+            <p class="section-intro">Released indie games</p>
 
             <div class="projects-grid">
                 <div class="project-card">
@@ -415,7 +416,7 @@
     <section id="design">
         <div class="container">
             <h2>Design</h2>
-            <p class="section-intro">Game design principles and analysis.</p>
+            <p class="section-intro">Game design articles</p>
 
             <div class="projects-grid">
                 <div class="project-card">
@@ -444,15 +445,15 @@
     <section id="programming">
         <div class="container">
             <h2>Programming</h2>
-            <p class="section-intro">Technical guides for game development.</p>
+            <p class="section-intro">Programming focused side projects</p>
 
             <div class="projects-grid">
                 <div class="project-card">
-                    <a href="programming/unity-features.html">
-                        <img src="resources/design/images/Unity3D.jpg" alt="Unity Feature Updates Guide" class="project-card-image">
+                    <a href="programming/steering-behaviors.html">
+                        <img src="resources/design/images/steering_emergence.gif" alt="Game AI: Steering Behaviors" class="project-card-image">
                         <div class="project-card-content">
-                            <h3>Unity Feature Updates Guide</h3>
-                            <p>Latest Unity features and best practices</p>
+                            <h3>Game AI: Steering Behaviors</h3>
+                            <p>Autonomous character movement and AI behaviors</p>
                         </div>
                     </a>
                 </div>
