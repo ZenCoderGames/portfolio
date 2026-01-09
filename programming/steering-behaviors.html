@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game AI: Steering Behaviors - Srinavin Nair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #ebe4d2;
+            --card-bg: #d5cab3;
+            --header-bg: #8a9fb8;
+            --secondary-bg: #587292;
+            --secondary-text: #9cc8da;
+            --text-dark: #272637;
+            --text-medium: #657994;
+            --text-light: #c3d1ed;
+            --accent-blue: #04724D;
+            --nav-bg: #1b1b22;
+            --border-color: #749391;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .site-tagline {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        .back-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 12px;
+            border: 1px solid var(--text-dark);
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-bg);
+            color: var(--header-bg);
+        }
+
+        .project-hero {
+            padding: 60px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .project-hero .container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .project-hero-image {
+            width: 300px;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 8px;
+            flex-shrink: 0;
+        }
+
+        .project-hero-content {
+            flex: 1;
+            color: var(--text-light);
+        }
+
+        .project-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--secondary-text);
+        }
+
+        .project-meta {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .project-content {
+            padding: 60px 0;
+        }
+
+        .project-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-top: 40px;
+            color: var(--text-light);
+        }
+
+        .project-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .project-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .project-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .project-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            margin-bottom: 30px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .project-hero .container {
+                flex-direction: column;
+            }
+
+            .project-hero-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-buttons {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="../index.html" class="site-title">Srinavin Nair</a>
+                    <div class="site-tagline">Game programmer/designer</div>
+                </div>
+                <div class="header-nav">
+                    <a href="../index.html#programming" class="back-link">← Back to Programming</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <img src="../resources/design/images/Unity3D.jpg" alt="Game AI: Steering Behaviors" class="project-hero-image">
+            <div class="project-hero-content">
+                <h1>Game AI: Steering Behaviors</h1>
+                <p class="project-meta">Programming Guide</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <p>Steering behaviors are a form of autonomous character navigation in games. Originally developed by Craig Reynolds, these behaviors allow AI characters to navigate environments naturally, avoid obstacles, pursue targets, and exhibit realistic group dynamics.</p>
+            <p>I made this open source project to share and teach game devs how to use them using Godot as the engine. This implements a simple intuitive architecture to add and remove behaviors to characters that can be easily added to any existing project. </p>
+            <p><a href="https://github.com/ZenCoderGames/ZSteeringBehaviors">Github Link</a></p>
+
+            <div class="video-container">
+                <iframe
+                    src="https://www.youtube.com/embed/videoseries?list=PLJCphRmpM-FU9DoJvWil2UMKQSlam3yZ9"
+                    title="Game AI: Emergence"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p>Here is a small demo of Emergent Behavior that can come from the combination of these behaviors. This showcases Flocking, Wander, Obstacle/Wall Avoidance and Fleeing</p>
+
+            <h2>Supported Behaviors</h2>
+            <ul>
+                <li><strong>Seek with Arrival</strong> - Move towards a target/destination and decelerate to a stop</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/EqQhu7J9nFQ?si=v6X8JDwR2lRm5TnB"
+                        title="Game AI: Seek with Arrival"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Pursue with Offset</strong> - Use velocity tracking to be more accurate and have a defined offset to the target character</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/Mfa3b_aSAXc?si=PtkR3Zg_u3robxci"
+                        title="Game AI: Offset Pursuit"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Flee and Leave</strong> - Move away from a target/destination and decelerate based on distance</li>
+                <li><strong>Evade</strong> - Use velocity tracking to predict and move ahead of time</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/RxOi3l-IRXg?si=lfodlq9HeIxz0HEi"
+                        title="Game AI: Evade with Leave"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Containment</strong> - A steering force that keeps the character within a zone/area</li>
+                <li><strong>Wander</strong> - Random exploration with smooth, natural-looking paths</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/BpnvBE9gvEI?si=8mU5K4kFkkAPR_zs"
+                        title="Game AI: Containment"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Obstacle Avoidance</strong> - A steering force that applies lateral and breaking forces to avoid obstacles</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/dccTzzGD_Ek?si=wLDujWfBELxyQ-1L"
+                        title="Game AI: Evade with Leave"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Wall Avoidance</strong> - A steering force that is applied when characters are in a path to collide with a wall.</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/anHYQ0TYZ7E?si=flQ41o6t_bRZ2-yM"
+                        title="Game AI: Wall Avoidance"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Path Following</strong> - A steering force that keeps characters on a path. The path here is defined by points and splines.</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/yrpOPfQ7jNI?si=TBqHnyVp2ZNpE8cq"
+                        title="Game AI: Path Following"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <li><strong>Flocking</strong> - Set of behaviors that simulates flocks in nature like birds/fish. Group behaviors including separation, alignment, and cohesion</li>
+                <div class="video-container">
+                    <iframe
+                        src="https://www.youtube.com/embed/nCUD15cBl18?si=jXc7ic2U6LMdIhof"
+                        title="Game AI: Flocking"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </ul>
+    </section>
+</body>
+</html>

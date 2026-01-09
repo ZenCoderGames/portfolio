@@ -14,8 +14,9 @@
         :root {
             --primary-bg: #ebe4d2;
             --card-bg: #d5cab3;
-            --header-bg: #2b3253;
+            --header-bg: #8a9fb8;
             --secondary-bg: #587292;
+            --secondary-text: #9cc8da;
             --text-dark: #272637;
             --text-medium: #657994;
             --text-light: #c3d1ed;
@@ -53,18 +54,18 @@
         .site-title {
             font-size: 24px;
             font-weight: 600;
-            color: var(--primary-bg);
+            color: var(--text-dark);
             text-decoration: none;
         }
 
         .site-tagline {
             font-size: 14px;
-            color: var(--primary-bg);
+            color: var(--text-dark);
             margin-top: 4px;
         }
 
         .back-link {
-            color: var(--primary-bg);
+            color: var(--text-dark);
             text-decoration: none;
             font-size: 16px;
         }
@@ -85,11 +86,11 @@
         }
 
         .nav-btn {
-            color: var(--primary-bg);
+            color: var(--text-dark);
             text-decoration: none;
             font-size: 14px;
             padding: 6px 12px;
-            border: 1px solid var(--primary-bg);
+            border: 1px solid var(--text-dark);
             border-radius: 4px;
             transition: background-color 0.3s, color 0.3s;
         }
@@ -120,12 +121,13 @@
 
         .project-hero-content {
             flex: 1;
+            color: var(--text-light);
         }
 
         .project-hero h1 {
             font-size: 42px;
             margin-bottom: 20px;
-            color: var(--text-dark);
+            color: var(--secondary-text);
         }
 
         .project-meta {
@@ -142,7 +144,7 @@
             font-size: 32px;
             margin-bottom: 20px;
             margin-top: 40px;
-            color: var(--text-dark);
+            color: var(--text-light);
         }
 
         .project-content h2:first-child {
@@ -206,7 +208,8 @@
             <img src="../resources/design/images/AntiChess.jpg" alt="Anti Chess" class="project-hero-image">
             <div class="project-hero-content">
                 <h1>Anti Chess</h1>
-                <p class="project-meta">Independent Game</p>
+                <p><strong>Engine:</strong> Flash</p>
+                <p><strong>Role:</strong> Solo Programmer/Designer</p>
             </div>
         </div>
     </section>
