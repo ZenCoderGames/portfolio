@@ -1,9 +1,9 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unity Feature Updates Guide - Srinavin Nair</title>
+    <title>ZEngine2D - Srinavin Nair</title>
     <style>
         * {
             margin: 0;
@@ -151,6 +151,13 @@
             margin-top: 0;
         }
 
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 30px;
+            color: var(--text-dark);
+        }
+
         .project-content p {
             font-size: 18px;
             line-height: 1.8;
@@ -170,6 +177,15 @@
             margin-bottom: 10px;
         }
 
+        .project-content a {
+            color: var(--accent-blue);
+            text-decoration: none;
+        }
+
+        .project-content a:hover {
+            text-decoration: underline;
+        }
+
         footer {
             background-color: var(--secondary-bg);
             padding: 30px 0;
@@ -181,6 +197,35 @@
         footer p {
             color: var(--text-light);
             font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .project-hero .container {
+                flex-direction: column;
+            }
+
+            .project-hero-image {
+                width: 100%;
+                height: auto;
+            }
+
+            .project-hero h1 {
+                font-size: 32px;
+            }
+
+            .project-content h2 {
+                font-size: 24px;
+            }
         }
     </style>
 </head>
@@ -196,7 +241,7 @@
                     <a href="../index.html#programming" class="back-link">← Back to Programming</a>
                     <div class="nav-buttons">
                         <a href="steering-behaviors.html" class="nav-btn">← Prev</a>
-                        <a href="game-engine-development.html" class="nav-btn">Next →</a>
+                        <a href="unity-features.html" class="nav-btn">Next →</a>
                     </div>
                 </div>
             </div>
@@ -205,81 +250,59 @@
 
     <section class="project-hero">
         <div class="container">
-            <img src="../resources/design/images/Unity3D.jpg" alt="From Unity 5 to Now (New Features)" class="project-hero-image">
+            <img src="../resources/programming/gameEngine_tetris.gif" alt="ZEngine2D" class="project-hero-image">
             <div class="project-hero-content">
-                <h1>From Unity 5 to Now (New Features)</h1>
-                <p class="project-meta">Programming Guide</p>
+                <h1>ZEngine2D</h1>
+                <p class="project-meta"><strong>Language:</strong> C++ (94.9%), C (3.7%)</p>
+                <p class="project-meta"><strong>License:</strong> MIT</p>
             </div>
         </div>
     </section>
 
     <section class="project-content">
         <div class="container">
-            <h2>Introduction</h2>
-            <p>It's been awhile since I upgraded Unity. Have been stuck on Unity 5 for a <strong>long</strong> time supporting older projects and it has taken me awhile to catch up with all the new amazing features that the current versions now ships with.</p>
-            <p>Below is a comprehensive list of 31 major Unity features released since Unity 5, organized as a reference guide to save you time digging around.</p>
+            <h2>Overview</h2>
+            <p>ZEngine2D is a simple 2D game engine built on SDL2 that follows the Entity Component System (ECS) paradigm. The engine incorporates Lua as its scripting language, providing a flexible and powerful foundation for 2D game development.</p>
 
-            <h2>Visual & Design Tools</h2>
+            <h2>Purpose</h2>
+            <p>The purpose of this engine was to build something from scratch and document the process for a younger generation that has grown up with engines like Unity, Unreal, GameMaker, etc. This project is designed for game developers who want to dive a bit deeper and learn how game engines work under the hood.</p>
+
+            <h2>Core Components</h2>
+            <p>The engine includes several built-in systems:</p>
             <ul>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.timeline@1.2/manual/index.html">Timeline</a></li>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.cinemachine@2.3/manual/index.html">Cinemachine</a></li>
-                <li><a href="https://unity3d.com/unity/features/worldbuilding/probuilder">ProBuilder</a></li>
-                <li><a href="https://unity.com/features/polybrush">PolyBrush</a></li>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.shadergraph@17.1/manual/Getting-Started.html">Shader Graph</a></li>
-                <li><a href="https://unity.com/visual-effect-graph">VFX Graph</a></li>
+                <li><strong>Transform Management:</strong> Position, rotation, and scale handling for game entities</li>
+                <li><strong>Sprite Rendering:</strong> Efficient 2D sprite rendering system</li>
+                <li><strong>Sprite Animation:</strong> Support for animated sprites and animation sequences</li>
+                <li><strong>Box Collision:</strong> Box-based collision detection system</li>
+                <li><strong>Projectile Mechanics:</strong> Basic projectile handling for gameplay systems</li>
+                <li><strong>Text Rendering:</strong> Text display and font rendering capabilities</li>
+                <li><strong>Tile-based Systems:</strong> Support for tile maps and tile-based game worlds</li>
             </ul>
 
-            <h2>2D Development</h2>
+            <h2>Technical Stack</h2>
+            <h3>Dependencies</h3>
             <ul>
-                <li><a href="https://docs.unity3d.com/Manual/class-Tilemap.html">Tilemap</a></li>
-                <li><a href="https://docs.unity3d.com/Manual/class-SpriteAtlas.html">Sprite Atlas</a></li>
-                <li><a href="https://docs.unity3d.com/Manual/class-SpriteMask.html">Sprite Mask</a></li>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.2d.animation@8.0/manual/index.html">2D Animation</a></li>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.2d.spriteshape@3.0/manual/index.html">2D Sprite Shape</a></li>
-                <li><a href="https://blogs.unity3d.com/2019/03/18/isometric-2d-environments-with-tilemap/">2D Isometric Tilemaps</a></li>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.render-pipelines.lightweight@6.7/manual/2DLightProperties.html">2D Lights</a></li>
+                <li><strong>SDL2:</strong> Graphics and windowing library providing cross-platform support</li>
+                <li><strong>Lua:</strong> Scripting functionality for game logic and behavior</li>
             </ul>
 
-            <h2>Audio & Media</h2>
+            <h3>Architecture</h3>
+            <p>ZEngine2D follows the Entity Component System (ECS) paradigm, a modern data-oriented design pattern that separates data (components) from behavior (systems). This architecture provides:</p>
             <ul>
-                <li><a href="https://docs.unity3d.com/Manual/AmbisonicAudio.html">Ambisonic Audio</a></li>
-                <li><a href="https://docs.unity3d.com/Manual/VideoPanoramic.html">Panoramic Video</a></li>
+                <li>Clean separation of concerns between game objects and their behaviors</li>
+                <li>Flexible composition of game entities through components</li>
+                <li>Efficient memory layout and cache-friendly data access patterns</li>
             </ul>
 
-            <h2>Rendering & Performance</h2>
-            <ul>
-                <li><a href="https://blogs.unity3d.com/2018/02/21/the-lightweight-render-pipeline-optimizing-real-time-performance/">LWRP (Lightweight Render Pipeline)</a></li>
-                <li><a href="https://unity.com/features/srp/high-definition-render-pipeline">HDRP (High Definition Render Pipeline)</a></li>
-                <li><a href="https://docs.unity3d.com/2018.2/Documentation/Manual/ProgressiveLightmapper.html">Progressive Lightmapper</a></li>
-                <li><a href="https://docs.unity3d.com/2018.2/Documentation/Manual/PostProcessing-Stack.html">Post Processing Stack</a></li>
+            <h3>Demo</h3>
+            <ul></ul>
+            <li>Contains 2 demos of using the engine with seperation of the Engine from the Gameplay Logic.</li>
             </ul>
 
-            <h2>Development Infrastructure</h2>
+            <h2>Resources</h2>
             <ul>
-                <li><a href="https://docs.unity3d.com/Packages/com.unity.package-manager-ui@1.8/manual/index.html">Package Manager</a></li>
-                <li><a href="https://docs.unity3d.com/2021.2/Documentation/Manual/UnityCollaborate.html">Unity Collaborate</a></li>
-                <li><a href="https://docs.unity3d.com/hub/manual/index.html">Unity HUB</a></li>
-                <li><a href="https://github.com/Unity-Technologies/AssetBundles-Browser">Asset Bundle Browser</a></li>
-                <li><a href="https://unitytech.github.io/unity-recorder/manual/index.html">GameObjectRecorder</a></li>
-            </ul>
-
-            <h2>Advanced Systems</h2>
-            <ul>
-                <li><a href="https://blogs.unity3d.com/2019/03/08/on-dots-entity-component-system/">ECS (Entity Component System)</a></li>
-                <li><a href="https://blogs.unity3d.com/2018/10/22/what-is-a-job-system/">Jobs system</a></li>
-            </ul>
-
-            <h2>UI & Workflow</h2>
-            <ul>
-                <li><a href="https://blogs.unity3d.com/2018/10/16/making-the-most-of-textmesh-pro-in-unity-2018/">TextMeshPro</a></li>
-                <li><a href="https://docs.unity3d.com/Manual/Presets.html">Presets</a></li>
-                <li><a href="https://docs.unity3d.com/Manual/NestedPrefabs.html">Nested Prefabs</a></li>
-                <li><a href="https://docs.unity3d.com/Manual/ProfilerMemory.html">Memory Profiler</a></li>
-            </ul>
-
-            <h2>Expansion</h2>
-            <ul>
-                <li><a href="https://docs.unity3d.com/Manual/XR.html">XR Support</a></li>
+                <li><a href="https://github.com/ZenCoderGames/ZEngine2D" target="_blank">GitHub Repository</a></li>
+                <li>Comprehensive Doxygen-generated documentation available in the repository</li>
             </ul>
         </div>
     </section>
