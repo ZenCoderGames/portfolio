@@ -14,7 +14,12 @@
       "Bash(dir /s /b *.css)",
       "Bash(dir /s /b .cursorrules .cursorrules)",
       "Bash(dir:*)",
-      "WebFetch(domain:www.youtube.com)"
+      "WebFetch(domain:www.youtube.com)",
+      "WebFetch(domain:github.com)",
+      "Bash(git -C \"C:\\\\Navin\\\\Development\\\\Html\\\\portfolio\" status)",
+      "Bash(git -C \"C:\\\\Navin\\\\Development\\\\Html\\\\portfolio\" diff)",
+      "Bash(git -C \"C:\\\\Navin\\\\Development\\\\Html\\\\portfolio\" log --oneline -5)",
+      "Bash(git -C \"C:\\\\Navin\\\\Development\\\\Html\\\\portfolio\" add programming/game-engine-development.html index.html programming/steering-behaviors.html programming/unity-features.html resources/programming/)"
     ],
     "deny": [],
     "ask": []
