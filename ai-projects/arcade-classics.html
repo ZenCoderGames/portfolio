@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recreating Arcade Classics - Srinavin Nair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #ebe4d2;
+            --card-bg: #d5cab3;
+            --header-bg: #8a9fb8;
+            --secondary-bg: #587292;
+            --secondary-text: #9cc8da;
+            --text-dark: #272637;
+            --text-medium: #657994;
+            --text-light: #c3d1ed;
+            --accent-blue: #04724D;
+            --nav-bg: #1b1b22;
+            --border-color: #749391;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .site-tagline {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        .back-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .nav-btn {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 14px;
+            padding: 6px 12px;
+            border: 1px solid var(--text-dark);
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .nav-btn:hover {
+            background-color: var(--primary-bg);
+            color: var(--header-bg);
+        }
+
+        .project-hero {
+            padding: 60px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .project-hero-content {
+            color: var(--text-light);
+        }
+
+        .project-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--secondary-text);
+        }
+
+        .project-meta {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .project-content {
+            padding: 60px 0;
+        }
+
+        .project-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: var(--text-dark);
+        }
+
+        .project-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 30px;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 10px;
+        }
+
+        .game-card {
+            text-decoration: none;
+            color: inherit;
+            border: 2px solid var(--border-color);
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+            display: block;
+            position: relative;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .game-thumbnail {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            overflow: hidden;
+        }
+
+        .game-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .game-label {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 10px 16px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.55);
+            -webkit-backdrop-filter: blur(2px);
+            backdrop-filter: blur(2px);
+        }
+
+        .disclaimer {
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .games-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="../index.html" class="site-title">Srinavin Nair</a>
+                    <div class="site-tagline">Game programmer/designer</div>
+                </div>
+                <div class="header-nav">
+                    <a href="../index.html#ai-projects" class="back-link">← Back to AI Projects</a>
+                    <div class="nav-buttons">
+                        <a href="pixelpop.html" class="nav-btn">← Prev</a>
+                        <a href="json-data-viewer.html" class="nav-btn">Next →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <h1>Recreating Arcade Classics</h1>
+                <p class="project-meta">AI Project</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+            <h2>Overview</h2>
+            <p>A collection of eight iconic arcade games rebuilt from scratch over a matter of 8 days.
+               Each game is a faithful recreation of the original, playable directly in the browser.</p>
+            <p>I made these games to preserve the classics so that my kids could play them any time they want.</p>
+
+            <div class="games-grid">
+                <a href="https://zencodergames.github.io/Classics_Tetris/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/tetris.jpg" alt="Tetris">
+                    </div>
+                    <div class="game-label">Tetris</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_Breakout/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/breakout.jpg" alt="Breakout">
+                    </div>
+                    <div class="game-label">Breakout</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_Snake/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/snake.jpg" alt="Snake">
+                    </div>
+                    <div class="game-label">Snake</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_Pong/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/pong.jpg" alt="Pong">
+                    </div>
+                    <div class="game-label">Pong</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_Asteroids/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/asteroids.jpg" alt="Asteroids">
+                    </div>
+                    <div class="game-label">Asteroids</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_SpaceInvaders/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/spaceInvaders.jpg" alt="Space Invaders">
+                    </div>
+                    <div class="game-label">Space Invaders</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_Defender/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/defender.jpg" alt="Defender">
+                    </div>
+                    <div class="game-label">Defender</div>
+                </a>
+
+                <a href="https://zencodergames.github.io/Classics_MsPacman/docs/" class="game-card" target="_blank" rel="noopener noreferrer">
+                    <div class="game-thumbnail">
+                        <img src="../resources/classics/pacman.jpg" alt="Ms. Pac-Man">
+                    </div>
+                    <div class="game-label">Ms. Pac-Man</div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <p class="disclaimer">
+        <i>AI was used for the code but the art/music/sfx and game feel were done by humans.</i>
+    </p>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Srinavin Nair. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
