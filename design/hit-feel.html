@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hit Feel Breakdown - Srinavin Nair</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-bg: #ebe4d2;
+            --card-bg: #d5cab3;
+            --header-bg: #8a9fb8;
+            --secondary-bg: #587292;
+            --secondary-text: #9cc8da;
+            --text-dark: #272637;
+            --text-medium: #657994;
+            --text-light: #c3d1ed;
+            --accent-blue: #04724D;
+            --nav-bg: #1b1b22;
+            --border-color: #749391;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--primary-bg);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
+            padding: 20px 0;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .site-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-decoration: none;
+        }
+
+        .site-tagline {
+            font-size: 14px;
+            color: var(--text-dark);
+            margin-top: 4px;
+        }
+
+        .back-link {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .project-hero {
+            padding: 60px 0;
+            background-color: var(--secondary-bg);
+        }
+
+        .project-hero-content {
+            color: var(--text-light);
+        }
+
+        .project-hero h1 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            color: var(--secondary-text);
+        }
+
+        .project-meta {
+            font-size: 18px;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+
+        .project-content {
+            padding: 60px 0;
+        }
+
+        .project-content h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            margin-top: 50px;
+            color: var(--text-dark);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+        }
+
+        .project-content h2:first-child {
+            margin-top: 0;
+        }
+
+        .project-content h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            margin-top: 35px;
+            color: var(--text-dark);
+        }
+
+        .project-content h4 {
+            font-size: 20px;
+            margin-bottom: 12px;
+            margin-top: 25px;
+            color: var(--text-medium);
+        }
+
+        .project-content p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .project-content ul {
+            margin-left: 30px;
+            margin-bottom: 20px;
+        }
+
+        .project-content li {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            margin-bottom: 10px;
+        }
+
+        .project-content a {
+            color: var(--accent-blue);
+        }
+
+        .project-content a:hover {
+            text-decoration: underline;
+        }
+
+        .move-breakdown {
+            display: flex;
+            gap: 0;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            overflow: hidden;
+            font-size: 18px;
+        }
+
+        .move-phase {
+            flex: 1;
+            padding: 20px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .move-phase.windup {
+            background-color: #3d5a73;
+        }
+
+        .move-phase.impact {
+            background-color: #8a3030;
+        }
+
+        .move-phase.recovery {
+            background-color: #3d6b4f;
+        }
+
+        .move-phase span {
+            display: block;
+            font-size: 13px;
+            font-weight: 400;
+            margin-top: 6px;
+            opacity: 0.85;
+        }
+
+        .technique-card {
+            background-color: var(--card-bg);
+            border-left: 4px solid var(--accent-blue);
+            border-radius: 0 8px 8px 0;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+        }
+
+        .technique-card h3 {
+            margin-top: 0;
+        }
+
+        .callout {
+            background-color: var(--card-bg);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border-color);
+        }
+
+        .callout p:last-child {
+            margin-bottom: 0;
+        }
+
+        .no-margin-bottom {
+            margin-bottom: 0;
+        }
+
+        .references-list {
+            list-style: none;
+            margin-left: 0;
+        }
+
+        .references-list li {
+            margin-bottom: 12px;
+            padding-left: 0;
+        }
+
+        .media-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 28px;
+            margin-bottom: 12px;
+        }
+
+        .media-grid figure {
+            margin: 0;
+        }
+
+        .media-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
+        .media-grid figcaption {
+            font-size: 13px;
+            color: var(--text-medium);
+            margin-top: 6px;
+            text-align: center;
+        }
+
+        footer {
+            background-color: var(--secondary-bg);
+            padding: 30px 0;
+            text-align: center;
+            border-top: 1px solid var(--border-color);
+            margin-top: 60px;
+        }
+
+        footer p {
+            color: var(--text-light);
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .move-breakdown {
+                flex-direction: column;
+            }
+
+            .project-hero h1 {
+                font-size: 30px;
+            }
+
+            .media-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <a href="../index.html" class="site-title">Srinavin Nair</a>
+                    <div class="site-tagline">Game programmer/designer</div>
+                </div>
+                <div class="header-nav">
+                    <a href="../index.html#design" class="back-link">← Back to Design</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="project-hero">
+        <div class="container">
+            <div class="project-hero-content">
+                <h1>Hit Feel Breakdown</h1>
+                <p class="project-meta">Game Design Article</p>
+                <p>A breakdown of the techniques used to make combat hits feel satisfying and impactful — from animation and VFX to audio, camera work, and networked game considerations.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="project-content">
+        <div class="container">
+
+            <h2>Anatomy of a Move</h2>
+
+            <p>Every attack in a game can be broken down into three phases. Understanding these phases is the foundation for applying hit feel techniques at the right moment.</p>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/StreetFighter_HadoukenRef.gif" alt="Street Fighter Hadouken Reference">
+                    <figcaption>Street Fighter — Hadouken reference</figcaption>
+                </figure>
+            </div>
+
+            <div class="move-breakdown">
+                <div class="move-phase windup">
+                    Windup
+                    <span>Anticipation — sets up power and telegraphs the attack</span>
+                </div>
+                <div class="move-phase impact">
+                    Impact
+                    <span>The hit — where most hit feel techniques fire</span>
+                </div>
+                <div class="move-phase recovery">
+                    Recovery
+                    <span>Follow-through — commits the attacker, creates counterplay</span>
+                </div>
+            </div>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/StreetFighter_Hadouken_Breakdown.gif" alt="Street Fighter Hadouken Breakdown">
+                    <figcaption>Street Fighter — Hadouken windup / impact / recovery breakdown</figcaption>
+                </figure>
+            </div>
+
+            <h2>Character Reactions</h2>
+
+            <p>How the hit target reacts is one of the most important signals of impact. The approach differs based on whether the character can be interrupted.</p>
+
+            <div class="technique-card">
+                <h3>Interruptible Characters</h3>
+                <ul>
+                    <li>Immediate pose changes — snap into a reaction state with no delay</li>
+                    <li>Respect the directionality of hits — a blow from the right should push the character to the left</li>
+                    <li>More dramatic pose changes for bigger impacts — scale the reaction to the power of the move</li>
+                    <li>Translation and combo reactions — physical displacement adds to the sense of force</li>
+                </ul>
+                <p class="no-margin-bottom">Reference: <a href="https://youtu.be/3lO1q8mQrrg?t=181" target="_blank" rel="noopener">Doom (2016) Hit Reactions Talk</a></p>
+
+                <div class="media-grid">
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Interrupting/GoW_HitReactions.gif" alt="God of War Hit Reactions">
+                        <figcaption>God of War — axe reactions</figcaption>
+                    </figure>
+                    <figure> 
+                        <img src="../resources/design/hitfeel/Reactions/Interrupting/GoW_HitReactions_LR.gif" alt="God of War Hit Reactions Left Right Directionality">
+                        <figcaption>God of War — directional hit reactions</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Interrupting/NierAutomata_SpearCombo.gif" alt="Nier Automata Spear Combo">
+                        <figcaption>Nier Automata — spear combo</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Interrupting/DMC_AirReactions.gif" alt="Devil May Cry Air Reactions">
+                        <figcaption>Devil May Cry — air hit reactions</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <div class="technique-card">
+                <h3>Non-Interruptible Characters</h3>
+                <ul>
+                    <li>Full animation interruption is not possible, but directionality of the hit can still be respected</li>
+                    <li>Use twitch/additive layers, root shake, and shader jiggle to sell the impact without breaking the animation</li>
+                </ul>
+
+                <div class="media-grid">
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Uninterrupting/Doom_DirectionalFlinch.gif" alt="Doom Directional Flinch">
+                        <figcaption>Doom — directional flinch on non-interruptible character</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Uninterrupting/GoW_DirectionalFlinch.gif" alt="God of War Directional Flinch">
+                        <figcaption>God of War — directional flinch</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Uninterrupting/Hades_RootShake.gif" alt="Hades Root Shake">
+                        <figcaption>Hades — root shake / additive jiggle</figcaption>
+                    </figure>
+                    <figure>
+                        <img src="../resources/design/hitfeel/Reactions/Uninterrupting/ZenlessZero_ProgramaticJiggle.gif" alt="Zenless Zero Programmatic Jiggle">
+                        <figcaption>Zenless Zero — programmatic jiggle</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <h2>Hit Flash</h2>
+
+            <p>A rapid contrast or saturation spike on the target at the moment of impact. One of the fastest, cheapest, and most effective hit feel tools available.</p>
+
+            <ul>
+                <li>Immediate contrast/saturation change on the frame of impact</li>
+                <li>Masked overlay — not uniform across the mesh; concentrated at the point of contact reads more believably</li>
+                <li>Tune the fade-out speed to match the weight of the hit</li>
+                <li>Color can represent damage type (e.g., red for physical, blue for elemental, yellow for electric)</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/HitFlash/CurseOfTheDeadGods_HitFlash.gif" alt="Curse of the Dead Gods Hit Flash">
+                    <figcaption>Curse of the Dead Gods — hit flash</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/HitFlash/Random_HitFlash.gif" alt="Hit Flash Example">
+                    <figcaption>Hit flash example</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/HitFlash/LostArk_HitFlash.gif" alt="Lost Ark Hit Flash">
+                    <figcaption>Lost Ark — hit flash</figcaption>
+                </figure>
+            </div>
+
+            <h2>Impulse</h2>
+
+            <p>Physical translation applied to the attacker or target as a result of the hit.</p>
+
+            <ul>
+                <li>Helps forward-translating player attacks avoid grinding against the target instead of landing cleanly</li>
+                <li>Bigger translation communicates bigger power — scale impulse magnitude with move strength</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/Impulse/Godfall_Impulse.gif" alt="Godfall Impulse">
+                    <figcaption>Godfall — hit impulse</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Impulse/Godfall_Impulse_02.gif" alt="Godfall Impulse 2">
+                    <figcaption>Godfall — impulse on heavier hit</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Impulse/Rival_Impulse.gif" alt="Rival Impulse">
+                    <figcaption>Rival: Crimson x Chaos — impulse</figcaption>
+                </figure>
+            </div>
+
+            <h2>Visual FX</h2>
+
+            <p>Impact particle effects and sparks that fire at the point of contact.</p>
+
+            <ul>
+                <li>Impact sparks should respect the directionality of the attack</li>
+                <li>Encapsulate the hit volume and number of hits within the VFX burst</li>
+                <li>Scale the effect to represent power — use color variation, scale, and additional layers for high-power hits</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/Impulse/FightingGame_VFX.gif" alt="Fighting Game VFX">
+                    <figcaption>Fighting game — impact VFX</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Impulse/Wukong_VFX.gif" alt="Black Myth Wukong VFX">
+                    <figcaption>Black Myth: Wukong — impact VFX</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Impulse/NierReplicant_VFX.gif" alt="Nier Replicant VFX">
+                    <figcaption>Nier Replicant — impact VFX</figcaption>
+                </figure>
+            </div>
+
+            <h2>Camera Shake</h2>
+
+            <p>Shaking the camera communicates physical weight and the intensity of an impact.</p>
+
+            <ul>
+                <li><strong>3D vs 2D</strong> — different axes of shake feel different; match to the genre and perspective</li>
+                <li><strong>Amplitude</strong> — how large the displacement is; scale with hit power</li>
+                <li><strong>Frequency</strong> — how fast the shake oscillates; higher frequency can feel lighter, lower frequency heavier</li>
+                <li><strong>Shake towards impact (Vlambeer technique)</strong> — briefly push the camera toward the direction of the hit before the shake, which reinforces directionality and feels more intentional</li>
+                <li><strong>Networked games</strong> — keep camera shake local to the client; allow stacked implementations so multiple hits compound naturally</li>
+            </ul>
+
+            <p>Reference: <a href="http://www.mathforgameprogrammers.com/gdc2016/GDC2016_Eiserloh_Squirrel_JuicingYourCameras.pdf" target="_blank" rel="noopener">Juicing Your Cameras — GDC 2016 (Eiserloh)</a></p>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/CameraShake/MonsterHunter_CameraShake.gif" alt="Monster Hunter Camera Shake">
+                    <figcaption>Monster Hunter — camera shake on heavy impact</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/CameraShake/GoW_CameraShake.gif" alt="God of War Camera Shake">
+                    <figcaption>God of War — camera shake</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/CameraShake/DmC_CameraShake.gif" alt="DmC Camera Shake">
+                    <figcaption>DmC: Devil May Cry — camera shake</figcaption>
+                </figure>
+            </div>
+
+            <h2>Hit Pause</h2>
+
+            <p>A very brief freeze of the game (typically 2–8 frames) at the moment of impact. This is one of the most impactful techniques for selling the weight of a hit.</p>
+
+            <ul>
+                <li>Freezes both the attacker and the target to emphasize the collision</li>
+                <li>In networked games, full game pause is not viable — simulate with a weapon or animation pause on the local client instead</li>
+            </ul>
+
+            <p>Reference: <a href="https://www.youtube.com/watch?v=s4HKw7Hqqd0" target="_blank" rel="noopener">Hit Pause Explanation</a></p>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/HitPause/MonsterHunter_HitPause.gif" alt="Monster Hunter Hit Pause">
+                    <figcaption>Monster Hunter — hit pause on heavy hit</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/HitPause/FightingGame_HitPause.gif" alt="Fighting Game Hit Pause">
+                    <figcaption>Fighting game — hit pause</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/HitPause/StreetFighter_HitPause.gif" alt="Street Fighter Hit Pause">
+                    <figcaption>Street Fighter — hit pause</figcaption>
+                </figure>
+            </div>
+
+            <h2>Slow Time</h2>
+
+            <p>Reducing time scale at key moments to give the player time to appreciate a powerful hit or cinematic moment.</p>
+
+            <ul>
+                <li>Slow time globally — applied to everything in the world</li>
+                <li>Slow time on player and target only — everything else continues at normal speed, useful for maintaining world believability</li>
+                <li>Global slow time is commonly used for Parry, Kill, and Guard Break moments</li>
+                <li><strong>Networked games</strong> — limit slow time to the local player and their target to avoid desync</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/SlowTime/GhostOfTsushima_SlowTime.gif" alt="Ghost of Tsushima Slow Time">
+                    <figcaption>Ghost of Tsushima — slow time on kill</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/SlowTime/GoW_SlowTime.gif" alt="God of War Slow Time">
+                    <figcaption>God of War — slow time on parry / execute</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/SlowTime/CurseOfTheDeadGods_SlowTime.gif" alt="Curse of the Dead Gods Slow Time">
+                    <figcaption>Curse of the Dead Gods — slow time</figcaption>
+                </figure>
+            </div>
+
+            <h2>Death</h2>
+
+            <p>The final hit deserves its own special treatment. Death is a payoff moment and should feel distinctly different from normal hit reactions.</p>
+
+            <ul>
+                <li>Exaggerated reaction animations that exceed what the attack physically implied</li>
+                <li>Shader tricks such as dissolve effects</li>
+                <li>Ragdoll physics for physical believability and variety</li>
+                <li>Slow time to let the moment land</li>
+                <li>Dedicated VFX and SFX — death should sound and look different</li>
+                <li>Translation — big hits send enemies flying</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/Death/LostArk_Death.gif" alt="Lost Ark Death">
+                    <figcaption>Lost Ark — death reaction</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Death/Bayonetta_Death.gif" alt="Bayonetta Death">
+                    <figcaption>Bayonetta — death reaction</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Death/BladeMobile_Death.gif" alt="Blade Mobile Death">
+                    <figcaption>Blade Mobile — death reaction</figcaption>
+                </figure>
+            </div>
+
+            <h2>Screen-Space Effects</h2>
+
+            <ul>
+                <li>Screen tints — color overlay to communicate damage type or severity</li>
+                <li>Luminance inversion — high-contrast flash for extreme hits</li>
+                <li>Screen filters / 2D shaders — post-process effects applied on impact</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/ScreenSpaceEffects/GoW_ScreenspaceEffect.gif" alt="God of War Screenspace Effect">
+                    <figcaption>God of War — screen-space effect on impact</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/ScreenSpaceEffects/Random_ScreenspaceEffect.gif" alt="Screen-Space Effect Example">
+                    <figcaption>Screen-space effect example</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/ScreenSpaceEffects/CurseOfTheDeadGods_ScreenspaceEffect.gif" alt="Curse of the Dead Gods Screenspace Effect">
+                    <figcaption>Curse of the Dead Gods — screen-space effect</figcaption>
+                </figure>
+            </div>
+
+            <h2>Camera Effects</h2>
+
+            <ul>
+                <li>Camera zoom — a quick push-in during a powerful hit adds drama</li>
+                <li>Depth of field — briefly blurring the background isolates the moment</li>
+                <li>Blur — motion blur or radial blur on impact adds speed and weight</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/CameraEffects/GoW_CameraZoom.gif" alt="God of War Camera Zoom">
+                    <figcaption>God of War — camera zoom on impact</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/CameraEffects/Kena_CameraZoom.gif" alt="Kena Camera Zoom">
+                    <figcaption>Kena: Bridge of Spirits — camera zoom</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/CameraEffects/NierReplicant_CameraBlur.gif" alt="Nier Replicant Camera Blur">
+                    <figcaption>Nier Replicant — camera blur</figcaption>
+                </figure>
+            </div>
+
+            <h2>UI: Health Bars and Damage Text</h2>
+
+            <ul>
+                <li><strong>3D vs 2D</strong> — world-space vs screen-space presentation affects how readable and dramatic the feedback is</li>
+                <li>Health bar flash, brief pause, and lerp-to-new-value rather than instant update — the delay makes damage feel weighty</li>
+                <li>Spiky, expressive damage number typography</li>
+                <li>Dedicated treatments for critical hit moments</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/UI/BladeMobilie_UIHealthBarFlash.gif" alt="Blade Mobile UI Health Bar Flash">
+                    <figcaption>Blade Mobile — health bar flash and lerp</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/UI/LeagueOfLegends_UIDamageNumbers.gif" alt="League of Legends UI Damage Numbers">
+                    <figcaption>League of Legends — expressive damage numbers</figcaption>
+                </figure>
+            </div>
+
+            <h2>Audio and SFX</h2>
+
+            <p>Sound design is often what separates a hit that feels powerful from one that feels empty.</p>
+
+            <ul>
+                <li><strong>Impact / multi-hit sounds</strong> — each hit needs its own audio event; layering sub-hits builds complexity</li>
+                <li><strong>Voice over</strong> — VO on impacts (grunts, effort sounds) dramatically increases perceived physicality</li>
+                <li><strong>Silence as anticipation</strong> — brief audio drop before a big hit builds tension and makes the impact hit harder</li>
+                <li><strong>Contrast</strong> — not every hit should sound the same. Pull back on lighter hits so heavy hits feel genuinely heavy</li>
+            </ul>
+
+            <div class="callout">
+                <h4>Key Audio Principles</h4>
+                <ul>
+                    <li>If everything is big, nothing is big. Identify the high points and pull back elsewhere so those moments feel more satisfying. Limit the frequency range you use — reserve high-end and low-end as effect moments so they feel special when they appear. Fighting games handle this well.</li>
+                    <li>Dryness and proximity in the mix communicates how close and immediate a hit feels. Star Wars' kill/execute and block SFX play with this a lot.</li>
+                    <li>A wider stereo image sweetens a moment and adds size and weight to hits. God of War uses this extremely well.</li>
+                    <li>Anticipation can add to satisfaction. The lead-up to the hit can be as important as the hit itself. VO helps this a ton, as seen in the Lost Ark fighter clip.</li>
+                    <li>Make space for the moment. This can be done through mix (Hades handles this well), through gameplay pacing, or a combination of both. God of War's execute moment and axe catch, Guilty Gear Strive's counter moment, and Elden Ring's execute all feel more satisfying because they pause to focus on those moments.</li>
+                </ul>
+            </div>
+
+            <h2>Combos (Pacing and Directionality)</h2>
+
+            <p>Individual hits only tell part of the story. The sequence of hits — how they flow into each other — is what defines the feel of a combat system.</p>
+
+            <div class="technique-card">
+                <h3>Visual Flow / Continuity</h3>
+                <p>Attacks should feel connected to each other. The end of attack 1 is essentially the windup for attack 2. As a whole, the sequence should feel like one fluid string.</p>
+                <figure>
+                    <img src="../resources/design/hitfeel/Animation/Combos/Random_Animation_01.gif" alt="Combo Example 1">
+                    <figcaption>Combo flow — visual continuity between hits</figcaption>
+                </figure>
+            </div>
+
+            <div class="technique-card">
+                <h3>Progressive Rhythm</h3>
+                <p>Most strong combo sequences use a bunch of similarly-timed linkers that build into a strong, powerful finisher. The rhythm of <em>jab &gt; jab &gt; jab &gt; power-up &gt; big attack</em> is a reliably satisfying pattern that works every time.</p>
+                <figure>
+                    <img src="../resources/design/hitfeel/Animation/Combos/DMC_DanteCombo.gif" alt="Combo Example 2">
+                    <figcaption>Combo flow — progressive rhythm building to finisher</figcaption>
+                </figure>
+            </div>
+
+            <div class="technique-card">
+                <h3>Focus on Finishers</h3>
+                <p>Everything in the combo is in service of the finisher move. Pay it off by putting enemies into big hit reactions, or dropping them into an exposed state for further follow-up.</p>
+                <figure>
+                    <img src="../resources/design/hitfeel/Animation/Combos/Random_Animation_02.gif" alt="Combo Example 2">
+                    <figcaption>Combo flow — progressive rhythm building to finisher</figcaption>
+                </figure>
+            </div>
+
+            <div class="technique-card">
+                <h3>Exaggerated Force Transfer</h3>
+                <p>The reaction on the victim should be correct in direction and type, but the <em>intensity</em> should be bigger than what was implied by the player's animation. Aim for a "more-than-equal opposite reaction." A player character doing fairly realistic punches should send a large enemy reeling as if hit by Superman — this is what makes it feel like power rather than normal physicality.</p>
+                <div class="media-grid">
+                    <figure>
+                        <img src="../resources/design/hitfeel/Animation/Combos/Random_Animation_03.gif" alt="Combo Example 3">
+                        <figcaption>Combo flow — exaggerated force transfer on finisher</figcaption>
+                    </figure>
+                </div>
+            </div>
+
+            <h2>Animation: Energy Transfer and Recoil</h2>
+
+            <p>Animation is the backbone of hit feel. The attacker's animation needs to sell energy going into the target — and the target's animation needs to sell energy coming out.</p>
+
+            <ul>
+                <li>Secondary animation layers add organic detail (follow-through, overlapping action on cloth and hair, weapon wobble)</li>
+                <li>Recoil on the attacker communicates that something resisted the blow</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/Animation/Random_Animation_01.gif" alt="Animation Energy Transfer Example 1">
+                    <figcaption>Energy transfer — attacker follow-through and recoil</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/Animation/Random_Animation_02.gif" alt="Animation Energy Transfer Example 2">
+                    <figcaption>Secondary animation layers and weapon wobble</figcaption>
+                </figure>
+            </div>
+
+            <p>An additional nuanced technique is to use IK to further enhance the feeling of heaviness on a weapon</p>
+            <ul>
+                <li>In the example below, Kratos' axe is embedded into the target surface on hit and is sped up to catch up to the animations after a short delay</li>
+            </ul>
+
+            <div class="media-grid">
+                <figure>
+                    <img src="../resources/design/hitfeel/NuancedTechniques/GoW_AxeEmbed_01.gif" alt="God of War Axe Embed 1">
+                    <figcaption>God of War — axe embed IK on impact</figcaption>
+                </figure>
+                <figure>
+                    <img src="../resources/design/hitfeel/NuancedTechniques/GoW_AxeEmbed_02.gif" alt="God of War Axe Embed 2">
+                    <figcaption>God of War — axe embed IK detail</figcaption>
+                </figure>
+            </div>
+
+            <p>Reference: <a href="https://www.youtube.com/watch?v=zpr-EE2In1M" target="_blank" rel="noopener">God of War — Weapon Embed IK</a></p>
+
+
+            <h2>Networked Games</h2>
+
+            <div class="callout">
+                <p>Not all hit feel techniques are viable in networked games. Even the ones that are need to be reconfigured to respect the server and multiple players.</p>
+                <ul>
+                    <li>Determine which elements exist on the local client vs the networked client</li>
+                    <li>Determine the appropriate intensity for each — usually lower on networked clients to avoid appearing wrong when server reconciliation occurs</li>
+                    <li>Invest in prediction to get juicy hit feel firing early, then blend into the replicated result once the server has validated the hit</li>
+                </ul>
+            </div>
+
+            <h2>Final Notes</h2>
+
+            <ul>
+                <li>Choose the right hit feel techniques to use — and which ones to avoid — for your specific game</li>
+                <li>Establish a base set of rules for hit feel across the game so it's consistent</li>
+                <li>Break those rules intentionally for contrast — for more unique or powerful moves</li>
+                <li>The combination of many techniques is where the magic happens, but the <em>timing</em> of when each one fires is critical</li>
+                <li>Ensure hit feel doesn't obscure clarity — the player must still read what happened</li>
+                <li>Provide options to enable, disable, or tune certain features for accessibility reasons</li>
+            </ul>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Srinavin Nair. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
